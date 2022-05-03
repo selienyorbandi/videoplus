@@ -1,0 +1,41 @@
+.Rating {
+    width: 30px;
+    height: 30px;
+    border-radius: .2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.Rating--bad {
+    background: red;
+}
+
+.Rating--notGood {
+    background: orangered;
+}
+
+.Rating--good {
+    background: yellow;
+    color: black;
+}
+
+.Rating--veryGood {
+    background: greenyellow;
+    color: black;
+}   
+
+.Rating--excellent {
+    background: green;
+}  
+
+.Rating--null {
+    opacity: 0;
+} 
+
+

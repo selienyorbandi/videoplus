@@ -1,0 +1,24 @@
+.Movie {
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.Movie:hover {
+    transform: scale(1.05);
+    z-index: 99;
+}
+
+.Movie__poster{
+    width: 200px;
+    height: 300px;
+    border-radius: .2rem;
+}
+
+.Movie__title {
+    padding: .1rem;
+    margin: 0;
+    text-align: center;
+}

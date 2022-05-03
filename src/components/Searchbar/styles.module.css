@@ -1,0 +1,33 @@
+.SearchBar {
+    width: 173px;
+    height: 34px;
+    background: transparent;
+    border: solid var(--third-font-color) 1.8px;
+    border-radius: 30px;
+    display: flex;
+    position: relative;
+}
+
+.SearchBar__inputField {
+    background: none;
+    border: none;
+    width: 115px;
+    height: 34px;
+    border-radius: 30px;
+    padding: 0 1rem;
+    color: var(--main-font-color);
+    outline: none;
+}
+
+.SearchBar:focus {
+    transform: scale(1.1);
+}
+
+.SearchBar__inputField::placeholder{
+    color: var(--third-font-color);
+}
+
+.SearchBar .Button {
+    right: 5px;
+    top: 3px;
+}

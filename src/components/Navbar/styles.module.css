@@ -1,0 +1,76 @@
+.NavBar__bg {
+    background: var(--third-bg-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.NavBar {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    margin: auto;
+}
+
+.NavBar__logoImg {
+    height: 40px;
+}
+
+.NavBar__navlist {
+    display: flex;
+    flex-direction: column;
+    background: var(--third-bg-color);
+    position: absolute;
+    right: 0;
+    list-style: none;
+    padding: 2rem;
+    width: 200px;
+    gap: 2rem;
+}
+
+.NavBar__navlist__closed {
+    top: -1000px;
+}
+
+.NavBar__navlist__open {
+    top: 50px;
+    transition: all .3s;
+    height: 100vh;
+}
+
+.NavBar__navlist li a {
+    color: var(--main-font-color);
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
+.NavBar__navlist li a:hover {
+    color: var(--second-font-color);
+}
+
+.NavBar__searchBar {
+    display: none;
+}
+
+@media screen and (min-width: 1000px) {
+    .NavBar {
+        max-width: 1150px;
+    }
+    
+    .NavBar__logoImg {
+        height: 65px;
+    }
+    
+    .NavBar__navlist {
+        flex-direction: row;
+        justify-content: flex-end;
+        position: relative;
+        width: 100%;
+        top: 0;
+        padding: 0;
+    }
+}

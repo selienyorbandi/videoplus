@@ -1,0 +1,60 @@
+.Footer {
+    background: var(--third-bg-color);
+    margin: 2rem 0 0 0;
+    padding: 1rem 0;
+}
+
+.Footer__content{
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.Footer a {
+    color: var(--main-font-color);
+    text-decoration: none;
+}
+
+.Footer__firstRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
+}
+
+.Footer__firstRow h4 {
+    padding: 0;
+    margin: 0;
+}
+
+.Footer__secondRow {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.Footer__mainLogo {
+    width: 150px;
+}
+
+.Footer__tmdbLogo{
+    width: 130px;
+}
+
+.Footer__socialMedia {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.Footer__socialMedia a:hover,
+.Footer__firstRow a:hover,
+p a:hover {
+    filter: invert(0.4) sepia(0.5) saturate(20) hue-rotate(180.6deg) brightness(0.8);
+}
