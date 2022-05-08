@@ -1,12 +1,16 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "pages/home/Home";
-import Movies from "pages/movies/Movies";
-import Series from "pages/series/Series";
-import Genres from "pages/genres/Genres";
+
+import Home from "pages/Home/Home";
+import Movies from "pages/Movies/Movies";
+import Series from "pages/Series/Series";
+import Genres from "pages/Genres/Genres";
+import MovieDetail from "pages/MovieDetail/MovieDetail";
 import Notfound from "pages/not-found";
+
 import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
+
+import "./App.css";
 
 function App() {
   return (
@@ -18,6 +22,8 @@ function App() {
           <Route path="/peliculas" element={<Movies />} />
           <Route path="/series" element={<Series />} />
           <Route path="/generos" element={<Genres />} />
+          <Route path="/m/:id" element={<MovieDetail/>} />
+          <Route path="/s/:id" element={<MovieDetail/>} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </main>

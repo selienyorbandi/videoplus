@@ -1,0 +1,131 @@
+.MovieDetail__backdrop {
+    background-size: cover;
+}
+
+.MovieDetail__backdrop__filter {
+    background: #04121cd7;
+    box-shadow: 0 0 15px 0 #111112 inset;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.MovieDetail__mainCard {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    width: 100%;
+    gap: 1.5rem;
+}
+
+.MovieDetail__mainCard__content__header {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 0 1rem 1.5rem 1rem;
+}
+
+.MovieDetail__mainCard__content__header h1 {
+    display: flex;
+    gap: 1rem
+}
+
+.MovieDetail__mainCard__content__header__mediatype {
+    align-self: center;
+    padding: 0 .25rem;
+    font-weight: 300;
+    font-size: .8rem;
+    color: #F7E053;
+    background: #181818;
+    border: solid 1px rgba(128, 128, 128, 0.112);
+}
+
+.MovieDetail__mainCard__content__row {
+    padding: 0 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.MovieDetail__mainCard__posterImg {
+    width: 250px;
+    position: relative;
+}
+
+.MovieDetail__mainCard__posterImg img {
+    width: 100%;
+}
+
+.Rating {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.Rating p {
+    width: 35px;
+    height: 35px;
+}
+
+.MovieDetail__mainCard__content {
+    max-width: none;
+}
+
+.MovieDetail h1 {
+    font-weight: 800;
+}
+
+.MovieDetail h2 {
+    font-weight: 600;
+    color: #a2a2a2;
+}
+
+.MovieDetail h3 {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.MovieDetail p {
+    font-weight: 400;
+}
+
+@media only screen and (min-width: 600px) {
+    .MovieDetail__mainCard__content__row {
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .MovieDetail__mainCard {
+        justify-content: flex-start;
+        padding: 1rem;
+    }
+
+    .MovieDetail__mainCard__content {
+        max-width: 100vw;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .MovieDetail__mainCard__content {
+        max-width: 60vw;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    .MovieDetail__mainCard {
+        padding: 4rem 1rem;
+    }
+
+    .MovieDetail__mainCard__content__row {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .MovieDetail__mainCard__content {
+        max-width: 860px;
+    }
+}

@@ -22,7 +22,7 @@ function Home() {
 
   return (
     <div className={styles.Container}>
-      <h2>LO MÁS POPULAR</h2>
+      <h1>LO MÁS POPULAR</h1>
       {isLoading ? <Loader/> : <MovieList movies={trending}/>}
     </div>
   );

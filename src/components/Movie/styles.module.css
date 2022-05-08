@@ -1,3 +1,7 @@
+.MovieLink {
+    color: var(--main-font-color);
+    text-decoration: none;
+}
 .Movie {
     max-width: 200px;
     display: flex;

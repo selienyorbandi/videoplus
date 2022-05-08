@@ -39,7 +39,7 @@ function Navbar(){
           <li><NavLink to="/" className={({isActive}) => (isActive ? "active" : "")}>Inicio</NavLink></li>
           <li><NavLink to="/peliculas" className={({isActive}) => (isActive ? "active" : "")}>Películas</NavLink></li>
           <li><NavLink to="/series" className={({isActive}) => (isActive ? "active" : "")}>Series</NavLink></li>
-          <li><NavLink to="/generos" className={({ isActive }) => isActive ? "active" : ""}>Géneros</NavLink></li>
+          <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Géneros</NavLink></li>
           <div><SearchBar/></div>
         </ul>
         <div className={styles.NavBar__searchBar}><SearchBar/></div>

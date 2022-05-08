@@ -4,9 +4,13 @@ import "./styles.css";
 function MenuIco({isOpen}) {
   
   useEffect(() => {
-    document.getElementById("menuIco").classList.toggle("opened");
+    if (isOpen) {
+      document.getElementById("menuIco").classList.add("opened");
+    } else {
+      document.getElementById("menuIco").classList.remove("opened");
+    }
   }, [isOpen]);
-
+  
   return (
     <button className="menu" aria-label="Main Menu" id="menuIco">
       <svg width="50" height="50" viewBox="0 0 100 100">

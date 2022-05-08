@@ -9,3 +9,4 @@ export const API_MOVIES_GENRE = `${API_URL}genre/movie/list?api_key=${process.en
 export const API_TV_GENRE = `${API_URL}genre/tv/list?api_key=${process.env.REACT_APP_API_KEY}&language=${LANGUAGE}`;
 
 export const API_IMG_PREFIX = "https://image.tmdb.org/t/p/w342";
+export const API_IMG_PREFIX__HD = "https://image.tmdb.org/t/p/w1280";

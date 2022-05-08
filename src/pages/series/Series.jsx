@@ -16,8 +16,8 @@ function Series(){
   }, []);
   return(
     <div className={styles.Container}>
-      <h2>SERIES MÁS POPULARES</h2>
-      <MovieList movies={tvShow}/>
+      <h1>SERIES MÁS POPULARES</h1>
+      <MovieList movies={tvShow} med_type="tv"/>
     </div>
   );
 }
