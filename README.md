@@ -2,7 +2,7 @@
 
 Es un sitio en desarrollo utilizando react 18 que consume un Api para mostrar la información de películas y series al usuario.
 
-![Logo de VideoPlus](https://raw.githubusercontent.com/selienyorbandi/videoplus/main/src/assets/img/logo.png)
+![Logo de VideoPlus](https://github.com/selienyorbandi/videoplus/blob/main/src/assets/images/logo.png)
 
 ## Acceso - Deploy  
 
