@@ -5,20 +5,23 @@ import { API_POPULAR_MOVIES } from "config/APIconfig";
 import styles from "../styles.module.css";
 
 function Movies() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
 
   useEffect(() => {
-    fetch(API_POPULAR_MOVIES)
-      .then((res) => res.json())
-      .then((movies) => {
-        setMovies(movies.results);
-      });
+    if (!movies) {
+      fetch(API_POPULAR_MOVIES)
+        .then((res) => res.json())
+        .then((movies) => {
+          setMovies(movies.results);
+        });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  
   return (
     <div className={styles.Container}>
       <h1>PELÍCULAS POPULARES</h1>
-      <MovieList movies={movies} med_type="movie"/>
+      {movies ? <MovieList movies={movies} med_type="movie"/> : <></>}
     </div>
   );
 }

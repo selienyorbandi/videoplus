@@ -19,9 +19,8 @@ function Rating({score}){
   };
 
   const ratingColor = calculateRating(score);
-  const normalizeScore = score % 1 === 0 && score < 10 ?  ".0" : "";
   return(
-    <p className={`${styles.Rating} ${styles[ratingColor]}`}>{`${score}${normalizeScore}`}</p>
+    <p className={`${styles.Rating} ${styles[ratingColor]}`}>{`${score.toFixed(1)}`}</p>
   );
 }
 

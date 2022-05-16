@@ -17,13 +17,13 @@ function Movie({name, title, poster_path, vote_average, id, media_type}) {
 
   return (
     <Link to={link} className={styles.MovieLink}>
-      <li className={styles.Movie}>
-        <div className="">
+      <div className={styles.Movie}>
+        <div className={styles.Movie__posterCnt}>
           <img src={`${API_IMG_PREFIX}${poster_path}`} alt={name? name: title} className={styles.Movie__poster}/>
         </div>
         <Rating score={vote_average}/>
-        <h3 className={styles.Movie__title}>{name? name: title }</h3>
-      </li>
+        <h2 className={styles.Movie__title}>{name? name: title }</h2>
+      </div>
     </Link>
   );
 }

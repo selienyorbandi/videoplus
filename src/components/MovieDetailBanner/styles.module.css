@@ -58,6 +58,7 @@
 
 .MovieDetail__mainCard__posterImg img {
     width: 100%;
+    border-radius: .2rem;
 }
 
 .Rating {

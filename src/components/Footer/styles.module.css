@@ -10,7 +10,11 @@
     padding: 1rem;
     text-align: center;
 }
-
+.Footer h3 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding-bottom: .3rem;
+}
 .Footer a {
     color: var(--main-font-color);
     text-decoration: none;
@@ -48,6 +52,7 @@
 
 .Footer__socialMedia {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
     padding: 1rem;

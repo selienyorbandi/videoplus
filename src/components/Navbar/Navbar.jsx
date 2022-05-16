@@ -30,11 +30,11 @@ function Navbar(){
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   });
-
+  
   return (
     <div className={styles.NavBar__bg} ref={navMenuRef}>
       <nav className={styles.NavBar}>
-        <Link to="/"><img src={logo} alt="Videoplus logo" className={styles.NavBar__logoImg}/></Link>
+        <Link to="/"><img src={logo} alt="Videoplus logo" className={styles.NavBar__logoImg} width="225" height="70"/></Link>
         <ul className={`${styles.NavBar__navlist} ${isOpen ? styles.NavBar__navlist__open : styles.NavBar__navlist__closed}`}>
           <li><NavLink to="/" className={({isActive}) => (isActive ? "active" : "")}>Inicio</NavLink></li>
           <li><NavLink to="/peliculas" className={({isActive}) => (isActive ? "active" : "")}>Películas</NavLink></li>

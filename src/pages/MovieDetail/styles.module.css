@@ -1,0 +1,16 @@
+.MovieDetail__recommendations {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+@media screen and (min-width: 1000px) {
+    .MovieDetail__recommendations {
+        text-align: left;
+    }
+    .MovieDetail__recommendations h1 {
+        padding-left: 2rem;
+    }
+}

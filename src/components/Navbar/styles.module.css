@@ -14,10 +14,12 @@
     align-items: center;
     padding: 0 1rem;
     margin: auto;
+    max-width: 100vw;
 }
 
 .NavBar__logoImg {
     height: 40px;
+    width: auto;
 }
 
 .NavBar__navlist {
