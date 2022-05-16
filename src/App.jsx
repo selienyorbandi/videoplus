@@ -5,6 +5,7 @@ import Movies from "pages/Movies/Movies";
 import Series from "pages/Series/Series";
 import Genres from "pages/Genres/Genres";
 import MovieDetail from "pages/MovieDetail/MovieDetail";
+import Search from "pages/Search/Search";
 import Notfound from "pages/not-found";
 
 import Header from "components/Header/Header";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/generos" element={<Genres />} />
           <Route path="/m/:id" element={<MovieDetail/>} />
           <Route path="/s/:id" element={<MovieDetail/>} />
+          <Route path="/search/:query" element={<Search/>} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </main>

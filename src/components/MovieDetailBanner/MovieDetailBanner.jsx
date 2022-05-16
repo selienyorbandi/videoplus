@@ -5,12 +5,12 @@ import Rating from "components/Rating/Rating";
 
 import styles from "./styles.module.css";
 
-function MovieDetailBanner ({movieEl}) {
-  const {title, name, tagline,budget ,overview, revenue, production_companies, poster_path, backdrop_path, release_date, runtime, vote_average, genres, episode_run_time, first_air_date, number_of_seasons, number_of_episodes } = movieEl;
+function MovieDetailBanner ({movieEl = null}) {
+  const {title, name, tagline, budget  ,overview , revenue , production_companies , poster_path , backdrop_path , release_date , runtime , vote_average , genres , episode_run_time , first_air_date , number_of_seasons , number_of_episodes  } = movieEl;
   const isMovie = title !== undefined; /*  Movie has title, tv show has name */
   
   return (
-    movieEl ? 
+    movieEl.hasOwnProperty("title") || movieEl.hasOwnProperty("name") ? 
       <div className={styles.MovieDetail}>
         <div id="backdrop" className={styles.MovieDetail__backdrop} style={{backgroundImage: `url(${API_IMG_PREFIX__HD}${backdrop_path})` }}>
           <div className={styles.MovieDetail__backdrop__filter}>
