@@ -3,6 +3,7 @@ import { categoryMap } from "services/categoryMap";
 
 import Rating from "components/Rating/Rating";
 
+import posterDefault from "../../assets/images/poster_default.jpg";
 import styles from "./styles.module.css";
 
 function MovieDetailBanner ({movieEl = null}) {
@@ -16,7 +17,7 @@ function MovieDetailBanner ({movieEl = null}) {
           <div className={styles.MovieDetail__backdrop__filter}>
             <div className={styles.MovieDetail__mainCard}>
               <div className={styles.MovieDetail__mainCard__posterImg}>
-                <img src={`${API_IMG_PREFIX}${poster_path}`} alt={title} />
+                <img src={`${API_IMG_PREFIX}${poster_path}`} alt={title} onError={e => e.target.src = posterDefault}/>
                 <div className={styles.Rating}><Rating score={vote_average}/></div>
               </div>
               <div className={styles.MovieDetail__mainCard__content}>

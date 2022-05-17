@@ -1,3 +1,12 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+}
+.Container iframe {
+    width: 100%;
+    min-height: 500px;
+}
+
 .MovieDetail__recommendations {
     display: flex;
     flex-direction: column;
