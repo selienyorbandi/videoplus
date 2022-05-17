@@ -1,23 +1,26 @@
 .GenreList {
     display: flex;
     flex-wrap: wrap;
-    justify-items: center;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: flex-start;
+    gap: .7rem;
 }
 
-.GenreList > li {
+.GenreList a {
+    text-decoration: none;
+}
+
+.GenreList > a li {
     list-style: none;
     background: linear-gradient(90deg, rgba(30,116,191,1) 0%, rgba(1,190,239,1) 100%);
     color: #fff;
     font-size: 1.2rem;
     font-weight: bold;
     padding: .5rem;
+    border-radius: 10px;
 }
 
-.GenreList > li:active,
-.GenreList > li:hover {
+.GenreList > a li:active,
+.GenreList > a li:hover {
     transform: scale(1.1);
     background: linear-gradient(90deg, rgba(1,190,239,1) 0%, rgba(30,116,191,1) 100%);
-
 }

@@ -22,10 +22,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/peliculas" element={<Movies />} />
           <Route path="/series" element={<Series />} />
+          <Route path="/generos/:type/:id" element={<Genres />} />
           <Route path="/generos" element={<Genres />} />
           <Route path="/m/:id" element={<MovieDetail/>} />
           <Route path="/s/:id" element={<MovieDetail/>} />
-          <Route path="/search/:query" element={<Search/>} />
+          <Route path="/busqueda/:query" element={<Search/>} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </main>

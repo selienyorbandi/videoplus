@@ -17,10 +17,10 @@ function SearchBar() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    navigate(`/search/${currentKeyword}`);
+    navigate(`/busqueda/${currentKeyword}`);
     document.getElementById("search").reset();
   };
-
+  
   return (
     <form className={styles.SearchBar} onSubmit={handleSubmit} id="search">
       <input
