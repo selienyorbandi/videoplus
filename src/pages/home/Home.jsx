@@ -1,29 +1,19 @@
-import MovieList from "components/MovieList/MovieList";
-import { useEffect, useState } from "react";
+import useFetch from "hooks/useFetch";
 import { API_TRENDING } from "config/APIconfig";
 
-import styles from "../styles.module.css";
+import MovieList from "components/MovieList/MovieList";
 import Loader from "components/Loader/Loader";
 
+import styles from "../styles.module.css";
+
 function Home() {
-  const [trending, setTrending] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(API_TRENDING)
-      .then((res) => res.json())
-      .then((trendingMovie) => {
-        setTrending(trendingMovie.results);
-      })
-      .catch(err => console.log(err))
-      .finally(()=> setIsLoading(false));
-  }, []);
-
+  const { data, isLoading } = useFetch(API_TRENDING);
+  
   return (
     <div className={styles.Container}>
       <h1>LO MÁS POPULAR</h1>
-      {isLoading ? <Loader/> : <MovieList movies={trending}/>}
+      {isLoading && <Loader />}
+      {data && <MovieList movies={data} />}
     </div>
   );
 }

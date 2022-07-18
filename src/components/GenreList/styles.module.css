@@ -11,16 +11,15 @@
 
 .GenreList > a li {
     list-style: none;
-    background: linear-gradient(90deg, rgba(30,116,191,1) 0%, rgba(1,190,239,1) 100%);
-    color: #fff;
+    background: #ffffff18;
+    color: #eee;
     font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 600;
     padding: .5rem;
-    border-radius: 10px;
 }
 
 .GenreList > a li:active,
-.GenreList > a li:hover {
-    transform: scale(1.1);
-    background: linear-gradient(90deg, rgba(1,190,239,1) 0%, rgba(30,116,191,1) 100%);
+.GenreList > a li:hover,
+.GenreList .GenreList__Active {
+    background: linear-gradient(90deg, rgba(30,116,191,1) 0%, rgba(1,190,239,1) 100%);
 }

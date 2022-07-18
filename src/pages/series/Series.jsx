@@ -1,23 +1,18 @@
 import MovieList from "components/MovieList/MovieList";
-import { useEffect, useState } from "react";
 import { API_POPULAR_TV_SHOW } from "config/APIconfig";
 
 import styles from "../styles.module.css";
+import useFetch from "hooks/useFetch";
+import Loader from "components/Loader/Loader";
 
 function Series(){
-  const [tvShow, setTvShow] = useState([]);
+  const { data, isLoading } = useFetch(API_POPULAR_TV_SHOW);
         
-  useEffect(() => {
-    fetch(API_POPULAR_TV_SHOW)
-      .then((res) => res.json())
-      .then((tv) => {
-        setTvShow(tv.results);
-      });
-  }, []);
   return(
     <div className={styles.Container}>
       <h1>SERIES MÁS POPULARES</h1>
-      <MovieList movies={tvShow} med_type="tv"/>
+      {isLoading && <Loader />}
+      {data && <MovieList movies={data} />}
     </div>
   );
 }

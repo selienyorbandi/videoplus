@@ -50,7 +50,7 @@ function MovieDetail() {
       .then(res => res.json())
       .then(result => setVideos(result.results[0]));
   }, [fetchType, movieFetch, movieRecommendations, tvShowFetch, tvShowRecommendations,id]);
-
+  
   return (
     <div className={styles.Container}>
       {isLoading ? <Loader/> : 

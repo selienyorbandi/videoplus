@@ -8,7 +8,7 @@ import searchIco from "../../assets/images/search.png";
 import styles from "./styles.module.css";
 
 function SearchBar() {
-  const [currentKeyword, setCurrentKeyword] = useState(null);
+  const [currentKeyword, setCurrentKeyword] = useState(" ");
   const navigate = useNavigate();
 
   const handleChange = e => {

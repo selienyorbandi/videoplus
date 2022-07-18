@@ -1,40 +1,38 @@
-import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
+
+import useFetch from "hooks/useFetch";
+import { API_DISCOVER_MOVIE, API_DISCOVER_TV } from "config/APIconfig";
 
 import GenreList from "components/GenreList/GenreList";
 import MovieList from "components/MovieList/MovieList";
-
-import { API_DISCOVER_MOVIE, API_DISCOVER_TV } from "config/APIconfig";
+import Loader from "components/Loader/Loader";
 
 import styles from "../styles.module.css";
 import ownStyles from "./styles.module.css";
 
 function Genre(){
-  const [media, setMedia] = useState([]);
-  const [genreTypeDisplay, setGenreTypeDisplay] = useState(null);
+  const [genreTypeDisplay, setGenreTypeDisplay] = useState("movie");
   const {id} = useParams("id");
   const fetchType = useLocation().pathname[9];
-
-  useEffect(() => {
-    fetch(`${fetchType === "m" ? API_DISCOVER_MOVIE : API_DISCOVER_TV}&with_genres=${id}`)
-      .then(res => res.json())
-      .then(result => setMedia(result.results));
-  }, [id, fetchType]);
-
+  const {data: media, isLoading} = useFetch(`${fetchType === "m" ? API_DISCOVER_MOVIE : API_DISCOVER_TV}&with_genres=${id}`);
+  
   return(
     <div className={styles.Container}>
+      <h1>GÉNEROS </h1>
       <span className={ownStyles.MediaTypeSelectors}>
-        <h1>GÉNEROS </h1>
-        <button onClick={()=> setGenreTypeDisplay("movie")}>Películas {genreTypeDisplay === "movie" ? "◽" : ""}</button>
-        <button onClick={()=> setGenreTypeDisplay("tv")}>Series {genreTypeDisplay === "tv" ? "◽" : ""}</button>
+        <Link to={"/generos/m/28"}><button className={`${genreTypeDisplay === "movie" ? ownStyles.BtnActive : " "}`} onClick={()=> setGenreTypeDisplay("movie")}>Películas</button></Link>
+        <Link to={"/generos/s/10759"}><button className={`${genreTypeDisplay === "tv" ? ownStyles.BtnActive : " "}`} onClick={()=> setGenreTypeDisplay("tv")}>Series </button></Link>
       </span>
+      <hr/>
+      {isLoading && <Loader/>}
       {
         genreTypeDisplay === "movie"
           ?
           <>
             <div className={ownStyles.Container__main}>
-              <h2>Películas</h2>
               <GenreList genreType="movie"/>
+              <hr/>
               {media && fetchType === "m" ? <MovieList movies={media}/> : <></>}
             </div>
           </>
@@ -46,8 +44,8 @@ function Genre(){
           ?
           <>
             <div className={ownStyles.Container__main}>
-              <h2>Series y Shows de Televisión</h2>
               <GenreList genreType="tv"/>
+              <hr/>
               {media && fetchType === "s" ? <MovieList movies={media}/> : <></>}
             </div>
           </>
