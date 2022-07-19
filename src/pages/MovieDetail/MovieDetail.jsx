@@ -41,9 +41,7 @@ function MovieDetail() {
     isLoading: isLoadingVideo,
     errorVideo,
   } = useFetch(videoFetch, true);
-  console.log(movie);
-  console.log(recommendations);
-  console.log(video);
+  
   return (
     <div className={styles.Container}>
       {!(isLoadingMovie || isLoadingRecomm || isLoadingVideo) ? (
@@ -75,10 +73,14 @@ function MovieDetail() {
       ) : (
         <Loader />
       )}
-      {!(movie) && <>
-        <h1>Lo sentimos</h1>
-        <p>Hubo un problema en los servidores, intentelo nuevamente más tarde</p>
-      </>}
+      {!movie && errorMovie  && (
+        <div className={styles.Error}>
+          <h1>Lo sentimos :( </h1>
+          <p>
+            Hubo un problema en los servidores, intentalo nuevamente más tarde
+          </p>
+        </div>
+      )}
     </div>
   );
 }

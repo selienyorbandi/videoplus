@@ -24,7 +24,7 @@ function Movie({name, title, poster_path, vote_average, id, media_type}) {
           <img src={`${API_IMG_PREFIX}${poster_path}`} alt={name? name: title} className={styles.Movie__poster} onError={e=> e.target.src = posterDefault}/>
         </div>
         <Rating score={vote_average}/>
-        <h2 className={styles.Movie__title}>{name? name: title }</h2>
+        <h2 className={styles.Movie__title}>{name ? name: title }</h2>
       </div>
     </Link>
   );

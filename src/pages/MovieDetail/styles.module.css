@@ -1,12 +1,16 @@
 .Container {
     display: flex;
     flex-direction: column;
+    min-height: 65vh;
 }
 .Container iframe {
     width: 100%;
     min-height: 500px;
 }
-
+.Error {
+    padding: 2rem 0;
+    line-height: 3rem;
+}
 .MovieDetail__recommendations {
     display: flex;
     flex-direction: column;

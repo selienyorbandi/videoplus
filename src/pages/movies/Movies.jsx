@@ -13,7 +13,7 @@ function Movies() {
     <div className={styles.Container}>
       <h1>PELÍCULAS POPULARES</h1>
       {isLoading && <Loader />}
-      {data && <MovieList movies={data} />}
+      {data && <MovieList movies={data} med_type={"movie"} />}
     </div>
   );
   
