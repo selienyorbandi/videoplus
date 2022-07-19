@@ -15,7 +15,7 @@ function Genre(){
   const [genreTypeDisplay, setGenreTypeDisplay] = useState("movie");
   const {id} = useParams("id");
   const fetchType = useLocation().pathname[9];
-  const {data: media, isLoading} = useFetch(`${fetchType === "m" ? API_DISCOVER_MOVIE : API_DISCOVER_TV}&with_genres=${id}`);
+  const {data: media, isLoading} = useFetch(`${fetchType === "m" ? API_DISCOVER_MOVIE : API_DISCOVER_TV}&with_genres=${id}`, true);
   
   return(
     <div className={styles.Container}>

@@ -7,7 +7,7 @@ import Loader from "components/Loader/Loader";
 import styles from "../styles.module.css";
 
 function Movies() {
-  const { data, isLoading } = useFetch(API_POPULAR_MOVIES);
+  const { data, isLoading } = useFetch(API_POPULAR_MOVIES, true);
    
   return (
     <div className={styles.Container}>

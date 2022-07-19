@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 
 import { API_URL, LANGUAGE } from "config/APIconfig";
@@ -8,60 +7,78 @@ import Loader from "components/Loader/Loader";
 import MovieList from "components/MovieList/MovieList";
 
 import styles from "./styles.module.css";
+import useFetch from "hooks/useFetch";
 
 function MovieDetail() {
-  const [movie, setMovie] = useState({});
-  const [recommendations, setRecommendations] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const {id} = useParams("id");
+  const { id } = useParams("id");
+  const fetchType = useLocation().pathname[1];
 
   const movieFetch = `${API_URL}movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=${LANGUAGE}`;
   const tvShowFetch = `${API_URL}tv/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=${LANGUAGE}`;
-
   const movieRecommendations = `${API_URL}movie/${id}/recommendations?api_key=${process.env.REACT_APP_API_KEY}&language=${LANGUAGE}`;
   const tvShowRecommendations = `${API_URL}tv/${id}/recommendations?api_key=${process.env.REACT_APP_API_KEY}&language=${LANGUAGE}`;
+  const videoFetch = `${API_URL}${
+    fetchType === "m" ? "movie" : "tv"
+  }/${id}/videos?api_key=${
+    process.env.REACT_APP_API_KEY
+  }&language=${LANGUAGE}&official`;
 
-  const [videos, setVideos] = useState(null);
-
-  const fetchType = useLocation().pathname[1];
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(fetchType === "m" ? movieFetch : tvShowFetch)
-      .then((res) => res.json())
-      .then((result) => {
-        setMovie(result);
-      })
-      .catch(err => console.log(err));
-      
-    fetch(fetchType === "m" ? movieRecommendations : tvShowRecommendations)
-      .then(res => res.json())
-      .then(result => {
-        let recomm = [];
-        for (let i = 0; i < 5; i++) {
-          if (i < result.results.length) {
-            recomm.push(result.results[i]);
-          }
-        }
-        setRecommendations(recomm.length === 5 ? recomm : []); 
-      })
-      .finally(()=> setIsLoading(false));
-    fetch(`${API_URL}${fetchType === "m" ? "movie" : "tv"}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=${LANGUAGE}&official`)
-      .then(res => res.json())
-      .then(result => setVideos(result.results[0]));
-  }, [fetchType, movieFetch, movieRecommendations, tvShowFetch, tvShowRecommendations,id]);
-  
+  const {
+    data: movie,
+    isLoading: isLoadingMovie,
+    errorMovie,
+  } = useFetch(fetchType === "m" ? movieFetch : tvShowFetch, false);
+  const {
+    data: recommendations,
+    isLoading: isLoadingRecomm,
+    errorRecomm,
+  } = useFetch(
+    fetchType === "m" ? movieRecommendations : tvShowRecommendations,
+    true
+  );
+  const {
+    data: video,
+    isLoading: isLoadingVideo,
+    errorVideo,
+  } = useFetch(videoFetch, true);
+  console.log(movie);
+  console.log(recommendations);
+  console.log(video);
   return (
     <div className={styles.Container}>
-      {isLoading ? <Loader/> : 
+      {!(isLoadingMovie || isLoadingRecomm || isLoadingVideo) ? (
         <>
-          <MovieDetailBanner movieEl={movie}/>
-          {videos &&<iframe width="560" height="315" src={`https://www.youtube-nocookie.com/embed/${videos.key}`} title={videos.name} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
-          <div className={styles.MovieDetail__recommendations}>
-            {recommendations.length ? <h1>Recomendaciones</h1> : <></>}
-            <MovieList movies={recommendations} med_type={fetchType === "m" ? "movie" : "tv"}/>
-          </div>
-        </> }
+          {movie && !errorMovie && <MovieDetailBanner movieEl={movie} />}
+          {video && video.length && !errorVideo && (
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube-nocookie.com/embed/${video[0].key}`}
+              title={video[0].name}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          )}
+          {recommendations && !errorRecomm && recommendations.length && (
+            <>
+              <div className={styles.MovieDetail__recommendations}>
+                <h1>Recomendaciones</h1>
+                <MovieList
+                  movies={recommendations}
+                  med_type={fetchType === "m" ? "movie" : "tv"}
+                />
+              </div>
+            </>
+          )}
+        </>
+      ) : (
+        <Loader />
+      )}
+      {!(movie) && <>
+        <h1>Lo sentimos</h1>
+        <p>Hubo un problema en los servidores, intentelo nuevamente más tarde</p>
+      </>}
     </div>
   );
 }

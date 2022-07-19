@@ -6,7 +6,7 @@ import useFetch from "hooks/useFetch";
 import Loader from "components/Loader/Loader";
 
 function Series(){
-  const { data, isLoading } = useFetch(API_POPULAR_TV_SHOW);
+  const { data, isLoading } = useFetch(API_POPULAR_TV_SHOW, true);
         
   return(
     <div className={styles.Container}>

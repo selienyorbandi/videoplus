@@ -7,7 +7,7 @@ import Loader from "components/Loader/Loader";
 import styles from "../styles.module.css";
 
 function Home() {
-  const { data, isLoading } = useFetch(API_TRENDING);
+  const { data, isLoading } = useFetch(API_TRENDING, true);
   
   return (
     <div className={styles.Container}>
