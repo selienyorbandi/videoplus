@@ -58,6 +58,10 @@
     display: none;
 }
 
+.NavBar__Link__Active {
+    color: var(--second-font-color) !important;
+}
+
 @media screen and (min-width: 1000px) {
     .NavBar {
         max-width: 1150px;
