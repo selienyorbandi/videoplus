@@ -1,0 +1,26 @@
+.Paginator {
+    display: flex;
+    flex-direction: row;
+    gap: .3rem;
+    background: var(--forth-bg-color);
+}
+
+.Paginator li {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+li.Paginator__Active {
+    background: linear-gradient(90deg, rgba(30, 116, 191, 1) 0%, rgba(1, 190, 239, 1) 100%);
+    color: var(#fff);
+}
+
+
+.Paginator li:hover {
+    cursor: pointer;
+    background: var(--third-bg-color);
+}

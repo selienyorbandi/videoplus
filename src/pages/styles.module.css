@@ -20,6 +20,11 @@ hr {
     opacity: .3;
 }
 
+.Container__Pagination {
+    padding: 1.5rem 0;
+    align-self: center;
+}
+
 @media screen and (min-width: 1000px) {
     .Container {
         align-items: flex-start;

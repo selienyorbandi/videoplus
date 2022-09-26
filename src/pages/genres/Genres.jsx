@@ -10,12 +10,13 @@ import Loader from "components/Loader/Loader";
 
 import styles from "../styles.module.css";
 import ownStyles from "./styles.module.css";
+import Paginator from "components/Paginator/Paginator";
 
 function Genre(){
   const [genreTypeDisplay, setGenreTypeDisplay] = useState("movie");
   const {id} = useParams("id");
   const fetchType = useLocation().pathname[9];
-  const {data: media, isLoading} = useFetch(`${fetchType === "m" ? API_DISCOVER_MOVIE : API_DISCOVER_TV}&with_genres=${id}`, true);
+  const {data: media, isLoading, totalPages } = useFetch(`${fetchType === "m" ? API_DISCOVER_MOVIE : API_DISCOVER_TV}&with_genres=${id}`, true);
   
   return(
     <div className={styles.Container}>
@@ -52,6 +53,9 @@ function Genre(){
           :
           <></>
       }
+      <div className={styles.Container__Pagination}>
+        <Paginator totalPages={totalPages} />
+      </div>
     </div>
   );
 }

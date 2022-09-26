@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;800&display=swap');
 
 :root {
-  --main-bg-color : #111112;
+  --main-bg-color: #111112;
   --main-font-color: rgb(250, 250, 250);
   --second-bg-color: #EEEEEE;
   --second-font-color: #4AABE0;
@@ -21,7 +21,7 @@ body {
   color: var(--main-font-color);
   overflow-x: hidden;
   font-family: 'Assistant', sans-serif;
-  
+
 }
 
 .Main {
@@ -30,7 +30,7 @@ body {
   margin-top: 70px;
 }
 
-@media screen and (max-width: 1400px) { 
+@media screen and (max-width: 1400px) {
   .Main {
     max-width: 1200px;
   }
