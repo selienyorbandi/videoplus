@@ -1,4 +1,6 @@
 .svg {
+  position: absolute;
+  left: 45%;
   width: 100px;
   height: 100px;
   margin: auto;
