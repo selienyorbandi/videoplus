@@ -46,41 +46,40 @@ function MovieDetail() {
     <div className={styles.Container}>
       {!(isLoadingMovie || isLoadingRecomm || isLoadingVideo) ? (
         <>
-          {movie && !errorMovie && <MovieDetailBanner movieEl={movie} />}
-          {video && video.length && !errorVideo && (
+          {(movie && !errorMovie) ? <MovieDetailBanner movieEl={movie} /> : <></>}
+          {(video && video.length && !errorVideo) ? (
             <iframe
               width="560"
               height="315"
               src={`https://www.youtube-nocookie.com/embed/${video[0].key}`}
               title={video[0].name}
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-          )}
-          {recommendations && !errorRecomm && recommendations.length && (
+          ) : <> </>}
+          {recommendations && !errorRecomm && recommendations.length ? (
             <>
               <div className={styles.MovieDetail__recommendations}>
                 <h1>Recomendaciones</h1>
                 <MovieList
-                  movies={recommendations}
+                  movies={recommendations.slice(0,5)}
                   med_type={fetchType === "m" ? "movie" : "tv"}
                 />
               </div>
             </>
-          )}
+          ) : <></>}
         </>
       ) : (
         <Loader />
       )}
-      {!movie && errorMovie  && (
+      {!movie && errorMovie ? (
         <div className={styles.Error}>
           <h1>Lo sentimos :( </h1>
           <p>
             Hubo un problema en los servidores, intentalo nuevamente más tarde
           </p>
         </div>
-      )}
+      ) : <></>}
     </div>
   );
 }

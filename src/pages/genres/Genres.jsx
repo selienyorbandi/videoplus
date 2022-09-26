@@ -34,7 +34,7 @@ function Genre(){
             <div className={ownStyles.Container__main}>
               <GenreList genreType="movie"/>
               <hr/>
-              {media && fetchType === "m" ? <MovieList movies={media}/> : <></>}
+              {media && fetchType === "m" ? <MovieList movies={media} med_type="movie"/> : <></>}
             </div>
           </>
           :
@@ -47,7 +47,7 @@ function Genre(){
             <div className={ownStyles.Container__main}>
               <GenreList genreType="tv"/>
               <hr/>
-              {media && fetchType === "s" ? <MovieList movies={media}/> : <></>}
+              {media && fetchType === "s" ? <MovieList movies={media} /> : <></>}
             </div>
           </>
           :
